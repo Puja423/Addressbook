@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Collections;
 
 namespace Addressbook
 {
@@ -9,7 +10,7 @@ namespace Addressbook
 
     public class AddressBook
     {
-
+        public ArrayList ContactList = new ArrayList();
         List<Contact> Person = new List<Contact>();
         public void AddPerson()
         {
