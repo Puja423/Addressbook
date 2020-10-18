@@ -82,6 +82,7 @@ namespace Addressbook
             {
                 Person.Remove(deleteContact);
                 Console.WriteLine("delete Contact successfully", firstName);
+                ContactList.Remove(Person);
             }
 
         }
