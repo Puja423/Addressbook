@@ -69,7 +69,21 @@ namespace Addressbook
 
             }
         }
+        public void DeleteContactDetails()
+        {
+            string firstName = Console.ReadLine();
+            Contact deleteContact = FindPerson(firstName);
+            if (deleteContact == null)
+            {
+                Console.WriteLine("Not Found :" + firstName);
+            }
+            else
+            {
+                Person.Remove(deleteContact);
+                Console.WriteLine("delete Contact successfully", firstName);
+            }
 
+        }
     }
 }
 
