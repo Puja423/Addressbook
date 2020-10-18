@@ -7,11 +7,12 @@ namespace Addressbook
 {
     class Program
     {
-       
-            
+        public HashSet<Contact> ContactSet;
+
         AddressBook book;
         public Program()
         {
+            ContactSet = new HashSet<Contact>();
             book = new AddressBook();
         }
         static void Main(string[] args)
@@ -22,8 +23,9 @@ namespace Addressbook
             while (exist)
             {
                 string bookInfo;
-                ArrayList ContactList = new ArrayList();
-                Dictionary<string, ArrayList> Book = new Dictionary<string, ArrayList>();
+                HashSet<Contact> ContactSet = new HashSet<Contact>();
+                Dictionary<string, HashSet<Contact>> Book = new Dictionary<string, HashSet<Contact>>();
+               
                 Console.WriteLine("Enter New addressBook");
                 bookInfo = Console.ReadLine();
                 Console.WriteLine("Select the option. \n1. Add new contact. \n2. Edit existing contact. \n3. Delete existing contact. \n4.Exit");

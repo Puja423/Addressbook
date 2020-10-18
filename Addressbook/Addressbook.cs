@@ -10,8 +10,14 @@ namespace Addressbook
 
     public class AddressBook
     {
+        public HashSet<Contact> ContactSet = new HashSet<Contact>();
         public ArrayList ContactList = new ArrayList();
         List<Contact> Person = new List<Contact>();
+        HashSet<string> ContactName = new HashSet<string>();
+
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+
         public void AddPerson()
         {
             Contact contact = new Contact();
@@ -33,6 +39,24 @@ namespace Addressbook
             contact.Email = Console.ReadLine();
 
             Person.Add(contact);
+            ContactSet.Add(contact);
+            ContactName.Add(contact.FirstName);
+            ContactName.Add(contact.LastName);
+
+        }
+        public bool CheckDuplicate()
+        {
+            if (ContactName.Contains(FirstName) && ContactName.Contains(LastName))
+            {
+                Console.WriteLine("Contact details for this person already stored.");
+                return true;
+            }
+            else
+            {
+                ContactName.Add(FirstName);
+                ContactName.Add(LastName);
+                return false;
+            }
         }
         public Contact FindPerson(string firstName)
         {
