@@ -91,6 +91,7 @@ namespace Addressbook
                 EditContactDetails.Phone = Console.ReadLine();
                 Console.Write("Enter Email ID : ");
                 EditContactDetails.Email = Console.ReadLine();
+                Console.WriteLine("Edited Successfully");
 
             }
         }

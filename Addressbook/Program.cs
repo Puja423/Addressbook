@@ -28,7 +28,7 @@ namespace Addressbook
                
                 Console.WriteLine("Enter New addressBook");
                 bookInfo = Console.ReadLine();
-                Console.WriteLine("Select the option. \n1. Add new contact. \n2. Edit existing contact. \n3. Delete existing contact. \n4.Exit");
+                Console.WriteLine("Select the option. \n1. Add new contact. \n2. Edit existing contact. \n3. Delete existing contact. \n4.Search by city. \n5.Search by state. \n6.Exit");
                 int option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -52,6 +52,16 @@ namespace Addressbook
                             break;
                         }
                     case 4:
+                        {
+                            SearchContacts.SearchByCity();
+                            break;
+                        }
+                    case 5:
+                        {
+                            SearchContacts.SearchByState();
+                            break;
+                        }
+                    case 6:
                         {
                             exist = false;
                             break;
