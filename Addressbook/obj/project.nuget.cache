@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ydETjO0jf+lZnq8MAmSN2hcIT25r2mlZgcbYIK/vsOSB+bZLvlUuppMcQ6/0J9cbMvzFGfepqZPW0D74aZ5dGg==",
+  "dgSpecHash": "1GfCK+07WlQsDixUocNFr92eEbR5ukOKDJv/uj8PGVbQ99ESypg6qq+mp9To71q6wVxQXzOKEoCjeCRRwCeSMw==",
   "success": true,
   "projectFilePath": "G:\\Addressbook\\Addressbook\\Addressbook\\Addressbook.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Puja\\.nuget\\packages\\csvhelper\\15.0.8\\csvhelper.15.0.8.nupkg.sha512",
+    "C:\\Users\\Puja\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

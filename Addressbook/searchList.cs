@@ -39,6 +39,10 @@ namespace Addressbook
             Console.WriteLine(ContactsByState);
             return ContactsByState;
         }
+        public static void GetNumberOfContacts(int count)
+        {
+            Console.WriteLine("Number of contacts : " + count);
+        }
     }
 }
 
