@@ -6,6 +6,9 @@ using System.Collections;
 using System.IO;
 using CsvHelper;
 using System.Globalization;
+using System.Text.Json;
+using Newtonsoft.Json;
+using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Addressbook
 {
@@ -203,7 +206,7 @@ namespace Addressbook
                 string zip = contact.ZipCode.ToString();
                 SortedByZip.Add(zip);
             }
-           
+
         }
         public void ReadFromStreamReader()
         {
@@ -259,14 +262,14 @@ namespace Addressbook
                 Console.WriteLine("Data Reading done successfully from contact.csv file");
                 foreach (Contact contact in records)
                 {
-                    Console.Write("\t" + contact.FirstName);
-                    Console.Write("\t" + contact.LastName);
-                    Console.Write("\t" + contact.Address);
-                    Console.Write("\t" + contact.City);
-                    Console.Write("\t" + contact.State);
-                    Console.Write("\t" + contact.ZipCode);
-                    Console.Write("\t" + contact.Phone);
-                    Console.Write("\t" + contact.Email);
+                    Console.Write(contact.FirstName);
+                    Console.Write(contact.LastName);
+                    Console.Write(contact.Address);
+                    Console.Write(contact.City);
+                    Console.Write(contact.State);
+                    Console.Write(contact.ZipCode);
+                    Console.Write(contact.Phone);
+                    Console.Write(contact.Email);
                     Console.Write("\n");
                 }
             }
@@ -279,6 +282,48 @@ namespace Addressbook
             {
                 Console.WriteLine("Data Writing done successfully from contact.csv file");
                 csvWrite.WriteRecords(data);
+            }
+        }
+        public static void ReadJsonFile()
+        {
+            string filePath = @"G:\Addressbook\Addressbook\Addressbook\AddressBookContact.json";
+            if (File.Exists(filePath))
+            {
+                IList<Contact> contactsRead = JsonConvert.DeserializeObject<IList<Contact>>(File.ReadAllText(filePath));
+                foreach (Contact contact in contactsRead)
+                {
+                    Console.Write("\t" + contact.FirstName);
+                    Console.Write("\t" + contact.LastName);
+                    Console.Write("\t" + contact.Address);
+                    Console.Write("\t" + contact.City);
+                    Console.Write("\t" + contact.State);
+                    Console.Write("\t" + contact.ZipCode);
+                    Console.Write("\t" + contact.Phone);
+                    Console.Write("\t" + contact.Email);
+                    Console.Write("\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("File doesn't exists");
+            }
+        }
+        //Writing to a JSON File
+        public static void WriteToJsonFile(List<Contact> data)
+        {
+            string filePath = @"G:\Addressbook\Addressbook\Addressbook\AddressBookContact.json";
+            if (File.Exists(filePath))
+            {
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                using (StreamWriter streamWriter = new StreamWriter(filePath))
+                using (JsonWriter writer = new JsonTextWriter(streamWriter))
+                {
+                    jsonSerializer.Serialize(writer, data);
+                }
+            }
+            else
+            {
+                Console.WriteLine("File doesn't exists");
             }
         }
     }

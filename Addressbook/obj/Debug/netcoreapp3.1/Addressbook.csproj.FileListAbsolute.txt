@@ -11,5 +11,6 @@ G:\Addressbook\Addressbook\Addressbook\obj\Debug\netcoreapp3.1\Addressbook.dll
 G:\Addressbook\Addressbook\Addressbook\obj\Debug\netcoreapp3.1\Addressbook.pdb
 G:\Addressbook\Addressbook\Addressbook\obj\Debug\netcoreapp3.1\Addressbook.genruntimeconfig.cache
 G:\Addressbook\Addressbook\Addressbook\bin\Debug\netcoreapp3.1\CsvHelper.dll
-G:\Addressbook\Addressbook\Addressbook\obj\Debug\netcoreapp3.1\Addressbook.csproj.CoreCompileInputs.cache
 G:\Addressbook\Addressbook\Addressbook\obj\Debug\netcoreapp3.1\Addressbook.csproj.CopyComplete
+G:\Addressbook\Addressbook\Addressbook\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+G:\Addressbook\Addressbook\Addressbook\obj\Debug\netcoreapp3.1\Addressbook.csproj.CoreCompileInputs.cache
