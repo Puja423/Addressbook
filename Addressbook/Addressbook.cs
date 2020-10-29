@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using System.Collections;
 using System.IO;
 using CsvHelper;
 using System.Globalization;
-using System.Text.Json;
 using Newtonsoft.Json;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
@@ -292,14 +289,14 @@ namespace Addressbook
                 IList<Contact> contactsRead = JsonConvert.DeserializeObject<IList<Contact>>(File.ReadAllText(filePath));
                 foreach (Contact contact in contactsRead)
                 {
-                    Console.Write("\t" + contact.FirstName);
-                    Console.Write("\t" + contact.LastName);
-                    Console.Write("\t" + contact.Address);
-                    Console.Write("\t" + contact.City);
-                    Console.Write("\t" + contact.State);
-                    Console.Write("\t" + contact.ZipCode);
-                    Console.Write("\t" + contact.Phone);
-                    Console.Write("\t" + contact.Email);
+                    Console.Write( contact.FirstName);
+                    Console.Write(contact.LastName);
+                    Console.Write(contact.Address);
+                    Console.Write(contact.City);
+                    Console.Write(contact.State);
+                    Console.Write(contact.ZipCode);
+                    Console.Write(contact.Phone);
+                    Console.Write(contact.Email);
                     Console.Write("\n");
                 }
             }
