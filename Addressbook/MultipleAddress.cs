@@ -37,7 +37,7 @@ namespace Addressbook
                 Console.WriteLine("AddressBook Name :" + enumerator.Current.Key);
                 Console.WriteLine();
                 enumerator.Current.Value.SearchContactByCity(city);
-                Console.WriteLine("-------------");
+                Console.WriteLine("-------------------------");
             }
         }
         public void GetDistinctCityAndStateList()

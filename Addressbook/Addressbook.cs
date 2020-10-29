@@ -11,6 +11,7 @@ namespace Addressbook
 {
 
 
+
     public class AddressBooks
     {
         public List<Contact> contactList;
@@ -162,166 +163,11 @@ namespace Addressbook
                 SortedByName.Add(name);
             }
             SortedByName.Sort();
-            foreach (Contact c in contactList)
+            foreach (string name in SortedByName)
             {
-                Console.WriteLine(c.FirstName + "\t" + c.LastName + "\t" + c.Address + "\t" + c.City + "\t" + c.State + "\t" + c.ZipCode + "\t" + c.Phone + "\t" + c.Email);
-            }
-        }
-        public void SortByCity()
-        {
-            List<string> SortedByCity = new List<string>();
-            foreach (Contact contact in contactList)
-            {
-                string city = contact.City.ToString();
-                SortedByCity.Add(city);
-            }
-            SortedByCity.Sort();
-            foreach (Contact c in contactList)
-            {
-                Console.WriteLine(c.FirstName + "\t" + c.LastName + "\t" + c.Address + "\t" + c.City + "\t" + c.State + "\t" + c.ZipCode + "\t" + c.Phone + "\t" + c.Email);
-            }
-        }
-        public void SortByState()
-        {
-            List<string> SortedByState = new List<string>();
-            foreach (Contact contact in contactList)
-            {
-                string city = contact.City.ToString();
-                SortedByState.Add(city);
-            }
-            SortedByState.Sort();
-            foreach (Contact c in contactList)
-            {
-                Console.WriteLine(c.FirstName + "\t" + c.LastName + "\t" + c.Address + "\t" + c.City + "\t" + c.State + "\t" + c.ZipCode + "\t" + c.Phone + "\t" + c.Email);
-            }
-        }
-        public void SortByZip()
-        {
-            List<string> SortedByZip = new List<string>();
-            foreach (Contact contact in contactList)
-            {
-                string zip = contact.ZipCode.ToString();
-                SortedByZip.Add(zip);
+                Console.WriteLine(name);
             }
 
-        }
-        public void ReadFromStreamReader()
-        {
-            string path = @"G:\Addressbook\Addressbook\Addressbook\AddressInformation.txt";
-            if (File.Exists(path))
-            {
-                using (StreamReader streamReader = File.OpenText(path))
-                {
-                    String fileData;
-                    while ((fileData = streamReader.ReadLine()) != null)
-                    {
-                        Console.WriteLine((fileData));
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("File does not exist.");
-            }
-        }
-        public void WriteWithStreamWriter(string bookName)
-        {
-            string path = @"G:\Addressbook\Addressbook\Addressbook\AddressInformation.txt";
-            if (File.Exists(path))
-            {
-                using (StreamWriter streamWriter = File.AppendText(path))
-                {
-                    foreach (Contact contact in contactList)
-                    {
-                        streamWriter.Write(contact.FirstName);
-                        streamWriter.Write(contact.LastName);
-                        streamWriter.Write(contact.Address);
-                        streamWriter.Write(contact.City);
-                        streamWriter.Write(contact.State);
-                        streamWriter.Write(contact.Phone);
-                        streamWriter.Write(contact.Email);
-                    }
-                    streamWriter.Close();
-                }
-            }
-            else
-            {
-                Console.WriteLine("File does not exist");
-            }
-        }
-        public static void ImplementCSVDataHandling()
-        {
-            string filePath = @"G:\Addressbook\Addressbook\Addressbook\adressinformation.csv";
-            using (var reader = new StreamReader(filePath))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                var records = csv.GetRecords<Contact>().ToList();
-                Console.WriteLine("Data Reading done successfully from contact.csv file");
-                foreach (Contact contact in records)
-                {
-                    Console.Write(contact.FirstName);
-                    Console.Write(contact.LastName);
-                    Console.Write(contact.Address);
-                    Console.Write(contact.City);
-                    Console.Write(contact.State);
-                    Console.Write(contact.ZipCode);
-                    Console.Write(contact.Phone);
-                    Console.Write(contact.Email);
-                    Console.Write("\n");
-                }
-            }
-        }
-        public static void WriteCSVFile(List<Contact> data)
-        {
-            string filePath = @"G:\Addressbook\Addressbook\Addressbook\adressinformation.csv";
-            using (var writer = new StreamWriter(filePath))
-            using (var csvWrite = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            {
-                Console.WriteLine("Data Writing done successfully from contact.csv file");
-                csvWrite.WriteRecords(data);
-            }
-        }
-        public static void ReadJsonFile()
-        {
-            string filePath = @"G:\Addressbook\Addressbook\Addressbook\AddressBookContact.json";
-            if (File.Exists(filePath))
-            {
-                IList<Contact> contactsRead = JsonConvert.DeserializeObject<IList<Contact>>(File.ReadAllText(filePath));
-                foreach (Contact contact in contactsRead)
-                {
-                    Console.Write( contact.FirstName);
-                    Console.Write(contact.LastName);
-                    Console.Write(contact.Address);
-                    Console.Write(contact.City);
-                    Console.Write(contact.State);
-                    Console.Write(contact.ZipCode);
-                    Console.Write(contact.Phone);
-                    Console.Write(contact.Email);
-                    Console.Write("\n");
-                }
-            }
-            else
-            {
-                Console.WriteLine("File doesn't exists");
-            }
-        }
-        //Writing to a JSON File
-        public static void WriteToJsonFile(List<Contact> data)
-        {
-            string filePath = @"G:\Addressbook\Addressbook\Addressbook\AddressBookContact.json";
-            if (File.Exists(filePath))
-            {
-                JsonSerializer jsonSerializer = new JsonSerializer();
-                using (StreamWriter streamWriter = new StreamWriter(filePath))
-                using (JsonWriter writer = new JsonTextWriter(streamWriter))
-                {
-                    jsonSerializer.Serialize(writer, data);
-                }
-            }
-            else
-            {
-                Console.WriteLine("File doesn't exists");
-            }
         }
     }
 }
