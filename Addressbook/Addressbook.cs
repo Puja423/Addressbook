@@ -9,9 +9,6 @@ using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Addressbook
 {
-
-
-
     public class AddressBooks
     {
         public List<Contact> contactList;
@@ -163,12 +160,54 @@ namespace Addressbook
                 SortedByName.Add(name);
             }
             SortedByName.Sort();
-            foreach (string name in SortedByName)
+            foreach (Contact c in contactList)
             {
-                Console.WriteLine(name);
+                Console.WriteLine(c.FirstName + "\t" + c.LastName + "\t" + c.Address + "\t" + c.City + "\t" + c.State + "\t" + c.ZipCode + "\t" + c.Phone + "\t" + c.Email);
             }
-
+        }
+        public void SortByCity()
+        {
+            List<string> SortedByCity = new List<string>();
+            foreach (Contact contact in contactList)
+            {
+                string city = contact.City.ToString();
+                SortedByCity.Add(city);
+            }
+            SortedByCity.Sort();
+            foreach (Contact c in contactList)
+            {
+                Console.WriteLine(c.FirstName + "\t" + c.LastName + "\t" + c.Address + "\t" + c.City + "\t" + c.State + "\t" + c.ZipCode + "\t" + c.Phone + "\t" + c.Email);
+            }
+        }
+        public void SortByState()
+        {
+            List<string> SortedByState = new List<string>();
+            foreach (Contact contact in contactList)
+            {
+                string city = contact.City.ToString();
+                SortedByState.Add(city);
+            }
+            SortedByState.Sort();
+            foreach (Contact c in contactList)
+            {
+                Console.WriteLine(c.FirstName + "\t" + c.LastName + "\t" + c.Address + "\t" + c.City + "\t" + c.State + "\t" + c.ZipCode + "\t" + c.Phone + "\t" + c.Email);
+            }
+        }
+        public void SortByZip()
+        {
+            List<string> SortedByZip = new List<string>();
+            foreach (Contact contact in contactList)
+            {
+                string zip = contact.ZipCode.ToString();
+                SortedByZip.Add(zip);
+            }
+            SortedByZip.Sort();
+            foreach (Contact c in contactList)
+            {
+                Console.WriteLine(c.FirstName + "\t" + c.LastName + "\t" + c.Address + "\t" + c.City + "\t" + c.State + "\t" + c.ZipCode + "\t" + c.Phone + "\t" + c.Email);
+            }
         }
     }
 }
+
 
